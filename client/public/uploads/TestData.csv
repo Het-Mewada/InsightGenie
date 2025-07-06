@@ -1,0 +1,12 @@
+[
+  { "Name": "Alice", "Age": 25, "Department": "Engineering", "Salary": 70000 },
+  { "Name": "Bob", "Age": 30, "Department": "Engineering", "Salary": 85000 },
+  { "Name": "Charlie", "Age": 28, "Department": "Sales", "Salary": 50000 },
+  { "Name": "David", "Age": 35, "Department": "Sales", "Salary": 55000 },
+  { "Name": "Eva", "Age": 24, "Department": "HR", "Salary": 48000 },
+  { "Name": "Frank", "Age": 32, "Department": "HR", "Salary": 52000 },
+  { "Name": "Grace", "Age": 29, "Department": "Engineering", "Salary": 91000 },
+  { "Name": "Helen", "Age": 27, "Department": "Sales", "Salary": 53000 },
+  { "Name": "Ian", "Age": 26, "Department": "Engineering", "Salary": 74000 },
+  { "Name": "Judy", "Age": 31, "Department": "HR", "Salary": 60000 }
+]
