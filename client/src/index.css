@@ -5,11 +5,12 @@
 /* @import "virtual:windi.css"; */
 
 
-/* Hide scrollbar but allow scrolling */
-.scrollbar-hidden::-webkit-scrollbar {
-  display: none;
+/* Hide scrollbars on all elements */
+* {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;  /* IE and Edge */
 }
-.scrollbar-hidden {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none;    /* Firefox */
+
+*::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
 }
