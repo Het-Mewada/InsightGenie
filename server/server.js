@@ -11,12 +11,6 @@ connectDB();
 const app = express();
 
 app.use(cors());
-app.use(
-  cors({
-    origin:"https://insight-genie.netlify.app", // your React frontend URL
-    credentials: true, // if using cookies or auth
-  })
-);
 
 app.use(express.json({limit:'5mb'}));
 
