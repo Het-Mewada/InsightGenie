@@ -13,7 +13,7 @@ const app = express();
 app.use(cors());
 app.use(
   cors({
-    origin: "http://localhost:5173", // your React frontend URL
+    origin:"https://insight-genie.netlify.app", // your React frontend URL
     credentials: true, // if using cookies or auth
   })
 );

@@ -58,7 +58,7 @@ function UploadFile() {
     } catch (error: unknown) {
       if (error instanceof Error) {
         setError(error.message);
-        console.log("Error:", error.message);
+        console.log("Error:", error);
       } else {
         setError("An unknown error occurred.");
         console.log("Unknown Error:", error);
