@@ -4,6 +4,12 @@ import xlsx from "xlsx";
 import fs from "fs";
 
 const router = express.Router();
+const uploadDir = "uploads";
+
+
+if (!fs.existsSync(uploadDir)) {
+  fs.mkdirSync(uploadDir, { recursive: true });
+}
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -22,7 +28,7 @@ router.post("/file" , upload.single("file"), (req,res)=>{
     if(!file){
         return res.status(400).json({message:"No File Uploaded"});
     }
-    
+    console.log("file path : " , file.path)
     const workbook = xlsx.readFile(file.path);
     const sheetName = workbook.SheetNames[0];
     const data = xlsx.utils.sheet_to_json(workbook.Sheets[sheetName],{raw:true});
