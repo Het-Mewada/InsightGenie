@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
+import api from "../api";
 import { useLocation } from "react-router-dom";
 import DashboardCharts from "../components/DashboardCharts";
 import { RefreshCcw } from "lucide-react";
@@ -22,19 +22,16 @@ export default function Insights() {
       setError("");
       setIsLoading(true);
       try {
-        const res = await axios.post(
-          "http://localhost:5000/api/insights/analyze",
-          {
-            jsonData: data,
-          }
-        );
+        const res = await api.post("/insights/analyze", {
+          jsonData: data,
+        });
         setInsights(res.data.insights);
       } catch (err: any) {
         if (err?.response?.status === 413) {
           setError("File is too large");
         } else {
           setError(err.response.message || "Failed to generate insights.");
-          setInsights(null)
+          setInsights(null);
         }
         console.error("Insight error:", err);
       } finally {
@@ -106,9 +103,12 @@ export default function Insights() {
                 </h2>
               </div>
 
-              <div  className="bg-gray-800/50 border max-w-[80%] max-h-[80%] mx-auto border-gray-700 rounded-xl overflow-scroll scrollbar-hidden">
-                <div  className="flex justify-between">
-                  <pre tabIndex={-1} className="p-4 text-sm overflow-x-auto max-h-[500px] scrollbar-hidden">
+              <div className="bg-gray-800/50 border max-w-[80%] max-h-[80%] mx-auto border-gray-700 rounded-xl overflow-scroll scrollbar-hidden">
+                <div className="flex justify-between">
+                  <pre
+                    tabIndex={-1}
+                    className="p-4 text-sm overflow-x-auto max-h-[500px] scrollbar-hidden"
+                  >
                     {JSON.stringify(data, null, 2)}
                   </pre>
                   <span className="text-xs h-fit m-2 bg-indigo-900 text-indigo-300 px-2.5 py-1 rounded-full">
@@ -132,7 +132,7 @@ export default function Insights() {
               {/* Error Message */}
               {error && (
                 <div className="flex items-center justify-center min-h-[85vh] text-red-600 font-semibold text-lg">
-{error}
+                  {error}
                 </div>
               )}
               {insights && (
