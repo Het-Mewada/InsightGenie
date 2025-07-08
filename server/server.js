@@ -17,12 +17,10 @@ app.use(cors({
   credentials: false,
 }));
 
-app.options("*", cors());
-
-app.use(express.json({limit:'5mb'}));
+app.use(express.json({ limit: '5mb' }));
 
 app.use("/api/upload", uploadRoutes);
-app.use("/api/insights" , insightRoutes);
+app.use("/api/insights", insightRoutes);
 
 app.get("/", (req, res) => {
   res.send("InsightGenie Backend Running...");
@@ -30,5 +28,5 @@ app.get("/", (req, res) => {
 
 const PORT = process.env.PORT;
 app.listen(PORT, () => {
-  console.log(`server running on port ${PORT}`);
+  console.log(`Server running on port ${PORT}`);
 });
