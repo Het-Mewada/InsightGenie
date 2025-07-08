@@ -10,12 +10,7 @@ connectDB();
 
 const app = express();
 
-app.use(cors({
-  origin: "https://insight-genie.netlify.app",
-  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-  allowedHeaders: ["Content-Type", "Authorization"],
-  credentials: false,
-}));
+app.use(cors());
 
 app.use(express.json({ limit: '5mb' }));
 

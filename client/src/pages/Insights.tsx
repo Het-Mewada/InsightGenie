@@ -14,8 +14,8 @@ export default function Insights() {
   const data = location.state;
   console.log("Data : ", data);
   useEffect(() => {
-    if (data.length >= 100) {
-      setChartError("Data Too Large to Genrate Graph");
+    if (data.length >= 20) {
+      setChartError("Data Too Large to Genrate Graph (Try data with less than 20 rows)");
     }
 
     const getInsights = async () => {
@@ -142,7 +142,7 @@ export default function Insights() {
                 >
                   <h2 className="flex justify-between text-3xl font-extrabold flex items-center gap-2">
                     <span className="text-indigo-400 ">
-                      📊 Your Data Insights
+                      📊 Your AI Insights
                     </span>
                     <span>
                       <button onClick={() => setrefresh(true)}>
